@@ -3,7 +3,8 @@ Projeto de carteira online, sistema de pagamento de contas, transferências onli
 
 # Modelo conceitual
 
-![alt text](https://github.com/erickluz/wallet/Documentação/wallet.png)
+![alt text](https://github.com/erickluz/wallet/blob/master/Documenta%C3%A7%C3%A3o/wallet.png)
+
 
 
 
