@@ -5,17 +5,23 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public abstract class Pessoa implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	private String nome;
 	private String cpfOuCnpj;
 	private String login;
 	private String senha;
+	
+	@OneToMany(mappedBy="pessoa")
+	private Endereco endereco;
 	
 	public Pessoa() {
 		

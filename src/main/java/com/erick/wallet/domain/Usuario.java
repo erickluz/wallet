@@ -3,6 +3,9 @@ package com.erick.wallet.domain;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity // Alteracao aqui
 public class Usuario extends Pessoa implements Serializable{
@@ -10,6 +13,16 @@ public class Usuario extends Pessoa implements Serializable{
 	
 	private String tipo; // Mudar para o tipo TipoUsuario
 	
+	@ManyToOne
+	@JoinColumn(name="banco_id")
+	private Banco banco;
+	
+	@OneToMany(mappedBy="usuario")
+	private Conta conta;
+	
+	@OneToMany(mappedBy="usuario")
+	private Cartao cartao;
+		
 	public Usuario() {
 		
 	}
