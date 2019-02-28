@@ -1,7 +1,6 @@
 package com.erick.wallet.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +14,8 @@ public class PessoaService {
 	@Autowired
 	private PessoaRepository repo;
 	
-	public Optional<Pessoa> buscarPessoa(Integer id) {
-		return repo.findById(id);
+	public Pessoa buscarPessoa(Integer id) {
+		return repo.findById(id).orElseThrow(() -> new IllegalStateException("Erro ao buscar pessoa"));
 	}
 	
 	public List<Pessoa> getPessoas(){

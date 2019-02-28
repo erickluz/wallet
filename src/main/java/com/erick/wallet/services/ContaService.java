@@ -1,12 +1,12 @@
 package com.erick.wallet.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.erick.wallet.domain.Conta;
+import com.erick.wallet.domain.Usuario;
 import com.erick.wallet.repositories.ContaRepository;
 
 @Service
@@ -14,9 +14,12 @@ public class ContaService {
 
 	@Autowired
 	private ContaRepository repo;
+	
+	@Autowired
+	private UsuarioService usuarioService;
 
-	public Optional<Conta> buscarConta(Integer id) {
-		return repo.findById(id);
+	public Conta buscarConta(Integer id) {
+		return repo.findById(id).orElseThrow(() -> new IllegalStateException("Erro ao buscar usuario"));
 	}
 	
 	public List<Conta> getContas(){
@@ -35,6 +38,11 @@ public class ContaService {
 	
 	public void deletarConta(Conta conta) {
 		repo.delete(conta);
+	}
+
+	public Conta buscarContaPorUsuario(Integer id) {
+		Usuario usu = usuarioService.buscarUsuario(id);
+		return repo.findByUsuario(usu);
 	}
 	
 }

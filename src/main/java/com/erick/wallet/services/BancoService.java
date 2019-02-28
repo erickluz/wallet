@@ -1,7 +1,6 @@
 package com.erick.wallet.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +14,8 @@ public class BancoService {
 	@Autowired
 	private BancoRepository repo;
 	
-	public Optional<Banco> getBanco(Integer id) {
-		return repo.findById(id);
+	public Banco getBanco(Integer id) {
+		return repo.findById(id).orElseThrow(() -> new IllegalStateException("Erro ao buscar Banco"));
 	}
 	
 	public List<Banco> getBancos(){

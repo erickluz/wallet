@@ -2,6 +2,7 @@ package com.erick.wallet.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +29,7 @@ public class Conta implements Serializable {
 	private Usuario usuario;
 	
 	@OneToMany(mappedBy="conta")
-	private Transacao transacao;
+	private List<Transacao> transacoes;
 	
 	public Conta() {
 		
@@ -81,6 +82,22 @@ public class Conta implements Serializable {
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public List<Transacao> getTransacoes() {
+		return this.transacoes;
+	}
+
+	public void setTransacoes(List<Transacao> transacao) {
+		this.transacoes = transacao;
 	}
 
 	@Override
