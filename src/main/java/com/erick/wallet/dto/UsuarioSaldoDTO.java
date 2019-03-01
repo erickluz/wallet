@@ -14,7 +14,7 @@ public class UsuarioSaldoDTO implements Serializable{
 	}
 	
 	public UsuarioSaldoDTO(Usuario usuario) {
-		this.saldo = usuario.getConta().getSaldo();
+		this.saldo = usuario.getContaAtiva().getSaldo();
 	}
 
 	public Double getSaldo() {
@@ -25,6 +25,6 @@ public class UsuarioSaldoDTO implements Serializable{
 		this.saldo = saldo;
 	}
 	
-	
+
 	
 }

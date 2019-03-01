@@ -1,6 +1,7 @@
 package com.erick.wallet.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,7 @@ public class Banco implements Serializable{
 	
 	@JsonIgnore
 	@OneToMany
-	private Usuario usuario;
+	private List<Usuario> usuario;
 	
 	public Banco() {
 		
@@ -53,6 +54,22 @@ public class Banco implements Serializable{
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public List<Usuario> getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(List<Usuario> usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override

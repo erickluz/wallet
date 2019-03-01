@@ -1,14 +1,18 @@
 package com.erick.wallet.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Pessoa implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -21,7 +25,7 @@ public abstract class Pessoa implements Serializable{
 	private String senha;
 	
 	@OneToMany(mappedBy="pessoa")
-	private Endereco endereco;
+	private List<Endereco> endereco;
 	
 	public Pessoa() {
 		
@@ -34,6 +38,14 @@ public abstract class Pessoa implements Serializable{
 		this.cpfOuCnpj = cpfOuCnpj;
 		this.login = login;
 		this.senha = senha;
+	}
+
+	public List<Endereco> getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(List<Endereco> endereco) {
+		this.endereco = endereco;
 	}
 
 	public Integer getId() {
