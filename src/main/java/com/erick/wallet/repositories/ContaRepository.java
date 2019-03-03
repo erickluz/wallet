@@ -9,6 +9,6 @@ import com.erick.wallet.domain.Usuario;
 public interface ContaRepository extends JpaRepository<Conta, Integer>{
 
 	@Transactional(readOnly=true)
-	Conta findByUsuario(Usuario usuario);
+	Conta findByUsuarioAndStatus(Usuario usuario, boolean status);
 	
 }

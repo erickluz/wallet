@@ -18,8 +18,7 @@ public class Usuario extends Pessoa implements Serializable{
 	@JoinColumn(name="banco_id")
 	private Banco banco;
 	
-	@ManyToOne
-	@JoinColumn(name="conta_id")
+	@OneToMany(mappedBy="usuario")
 	private List<Conta> conta;
 	
 	@OneToMany(mappedBy="usuario")

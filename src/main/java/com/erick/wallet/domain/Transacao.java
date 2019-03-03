@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Transacao implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -24,6 +26,7 @@ public class Transacao implements Serializable{
 	private String numeroContaDestino;
 	private String operacao; //Alterar o tipo para OperacaoTransacao
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="conta_id")
 	private Conta conta;

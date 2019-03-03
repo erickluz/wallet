@@ -27,7 +27,7 @@ public class Banco implements Serializable{
 	private Endereco endereco;
 	
 	@JsonIgnore
-	@OneToMany
+	@OneToMany(mappedBy="banco")
 	private List<Usuario> usuario;
 	
 	public Banco() {

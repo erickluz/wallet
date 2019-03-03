@@ -9,7 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Conta implements Serializable {
@@ -23,7 +26,8 @@ public class Conta implements Serializable {
 	private double saldo;
 	private boolean status;
 	
-	@OneToMany(mappedBy="conta")
+	@JsonIgnore
+	@ManyToOne
 	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
 	

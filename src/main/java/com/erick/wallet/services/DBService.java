@@ -41,7 +41,7 @@ public class DBService {
 	@Autowired
 	private TransacaoRepository transacaoRepository;
 	
-	public void instanciacaoBancoDeDados(){
+	public void instantiateTestDatabase(){
 		
 		Endereco end1 = new Endereco(null, "Av. abc", "123");
 		Endereco end2 = new Endereco(null, "Av. cba", "321");
@@ -76,16 +76,19 @@ public class DBService {
 		b1.setUsuario(Arrays.asList(usuario));
 		usuario.setCartao(Arrays.asList(c1, c2));
 		c1.setUsuario(usuario);
+		c2.setUsuario(usuario);
 		usuario.setConta(Arrays.asList(co1, co2));
 		co1.setUsuario(usuario);
 		co2.setUsuario(usuario);
 		usuario.setEndereco(Arrays.asList(end3));
 		
+		usuarioRepository.save(usuario);
+		cartaoRepository.saveAll(Arrays.asList(c1, c2));
 		contaRepository.saveAll(Arrays.asList(co1, co2));
 		transacaoRepository.saveAll(Arrays.asList(tran1, tran2, tran3));
-		bancoRepository.saveAll(Arrays.asList(b1, b2));
-		cartaoRepository.saveAll(Arrays.asList(c1, c2));
-		usuarioRepository.save(usuario);
+
+		
+		
 		
 	}
 }

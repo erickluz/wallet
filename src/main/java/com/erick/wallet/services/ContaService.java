@@ -42,7 +42,7 @@ public class ContaService {
 
 	public Conta buscarContaPorUsuario(Integer id) {
 		Usuario usu = usuarioService.buscarUsuario(id);
-		return repo.findByUsuario(usu);
+		return repo.findByUsuarioAndStatus(usu, true);
 	}
 	
 }
