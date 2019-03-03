@@ -12,13 +12,13 @@ import com.erick.wallet.domain.Conta;
 import com.erick.wallet.domain.Endereco;
 import com.erick.wallet.domain.Transacao;
 import com.erick.wallet.domain.Usuario;
-import com.erick.wallet.domain.util.Data;
 import com.erick.wallet.repositories.BancoRepository;
 import com.erick.wallet.repositories.CartaoRepository;
 import com.erick.wallet.repositories.ContaRepository;
 import com.erick.wallet.repositories.EnderecoRepository;
 import com.erick.wallet.repositories.TransacaoRepository;
 import com.erick.wallet.repositories.UsuarioRepository;
+import com.erick.wallet.util.Data;
 
 @Service
 public class DBService {

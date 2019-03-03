@@ -1,4 +1,4 @@
-package com.erick.wallet.domain.util;
+package com.erick.wallet.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
