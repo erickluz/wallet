@@ -28,7 +28,6 @@ public class CartaoService {
 	}
 	
 	public Cartao salvarCartao(Cartao cartao) {
-		buscarCartao(cartao.getId());
 		return repo.save(cartao);
 	}
 	

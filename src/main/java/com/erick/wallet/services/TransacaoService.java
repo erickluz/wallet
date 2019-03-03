@@ -28,7 +28,6 @@ public class TransacaoService {
 	}
 	
 	public Transacao salvarTransacao(Transacao Transacao) {
-		buscarTransacao(Transacao.getId());
 		return repo.save(Transacao);
 	}
 

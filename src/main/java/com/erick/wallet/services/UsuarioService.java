@@ -28,7 +28,6 @@ public class UsuarioService {
 	}
 	
 	public Usuario salvarUsuario(Usuario Usuario) {
-		buscarUsuario(Usuario.getId());
 		return repo.save(Usuario);
 	}
 

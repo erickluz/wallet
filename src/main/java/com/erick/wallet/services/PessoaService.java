@@ -28,7 +28,6 @@ public class PessoaService {
 	}
 	
 	public Pessoa salvarPessoa(Pessoa Pessoa) {
-		buscarPessoa(Pessoa.getId());
 		return repo.save(Pessoa);
 	}
 

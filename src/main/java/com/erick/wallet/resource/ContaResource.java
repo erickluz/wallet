@@ -55,7 +55,7 @@ public class ContaResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
-	@PostMapping("/transferencia/")
+	@PostMapping("/transferencia")
 	public ResponseEntity<Void> transferenciaUsuario(@RequestBody Transacao transacao){
 		Transacao obj = transacaoService.salvarTransacao(transacao);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();

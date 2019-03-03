@@ -28,7 +28,6 @@ public class EnderecoService{
 	}
 	
 	public Endereco salvarEndereco(Endereco endereco) {
-		buscarEndereco(endereco.getId());
 		return repo.save(endereco);
 	}
 

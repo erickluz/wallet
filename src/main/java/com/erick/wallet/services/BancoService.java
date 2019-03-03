@@ -28,7 +28,6 @@ public class BancoService {
 	}
 	
 	public Banco salvarBanco(Banco banco) {
-		getBanco(banco.getId());
 		return repo.save(banco);
 	}
 	

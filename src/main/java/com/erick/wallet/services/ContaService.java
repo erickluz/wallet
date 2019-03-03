@@ -32,7 +32,6 @@ public class ContaService {
 	}
 	
 	public Conta salvarConta(Conta conta) {
-		buscarConta(conta.getId());
 		return repo.save(conta);
 	}
 	

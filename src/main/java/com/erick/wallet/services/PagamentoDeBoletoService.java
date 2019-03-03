@@ -28,7 +28,6 @@ public class PagamentoDeBoletoService {
 	}
 	
 	public PagamentoDeBoleto salvarPagamentoDeBoleto(PagamentoDeBoleto PagamentoDeBoleto) {
-		buscarPagamentoDeBoleto(PagamentoDeBoleto.getId());
 		return repo.save(PagamentoDeBoleto);
 	}
 
