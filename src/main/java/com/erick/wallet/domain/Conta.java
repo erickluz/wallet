@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -21,10 +20,10 @@ public class Conta implements Serializable {
 	private Integer id;
 	private String numeroConta;
 	private Date dataCriacao;
-	private Double saldo;
+	private double saldo;
 	private boolean status;
 	
-	@ManyToOne
+	@OneToMany(mappedBy="conta")
 	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
 	
@@ -35,7 +34,7 @@ public class Conta implements Serializable {
 		
 	}
 
-	public Conta(Integer id, String numeroConta, Date dataCriacao, Double saldo, boolean status) {
+	public Conta(Integer id, String numeroConta, Date dataCriacao, double saldo, boolean status) {
 		super();
 		this.id = id;
 		this.numeroConta = numeroConta;
@@ -68,11 +67,11 @@ public class Conta implements Serializable {
 		this.dataCriacao = dataCriacao;
 	}
 
-	public Double getSaldo() {
+	public double getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(Double saldo) {
+	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
 

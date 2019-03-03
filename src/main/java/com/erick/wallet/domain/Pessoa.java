@@ -24,7 +24,7 @@ public abstract class Pessoa implements Serializable{
 	private String login;
 	private String senha;
 	
-	@OneToMany(mappedBy="pessoa")
+	@OneToMany
 	private List<Endereco> endereco;
 	
 	public Pessoa() {

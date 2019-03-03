@@ -54,6 +54,22 @@ public class Transacao implements Serializable{
 		this.id = id;
 	}
 
+	public Conta getConta() {
+		return conta;
+	}
+
+	public void setConta(Conta conta) {
+		this.conta = conta;
+	}
+
+	public PagamentoDeBoleto getPagamentoDeBoleto() {
+		return pagamentoDeBoleto;
+	}
+
+	public void setPagamentoDeBoleto(PagamentoDeBoleto pagamentoDeBoleto) {
+		this.pagamentoDeBoleto = pagamentoDeBoleto;
+	}
+
 	public Double getValor() {
 		return valor;
 	}

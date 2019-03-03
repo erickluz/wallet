@@ -15,7 +15,7 @@ public class TestConfig {
 	private DBService dbService;
 	
 	@Bean
-	public boolean instantiateDatabase() {
+	public boolean instantiateDatabase(){
 		dbService.instanciacaoBancoDeDados();
 		return true;
 	}

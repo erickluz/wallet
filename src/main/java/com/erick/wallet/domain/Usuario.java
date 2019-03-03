@@ -18,7 +18,8 @@ public class Usuario extends Pessoa implements Serializable{
 	@JoinColumn(name="banco_id")
 	private Banco banco;
 	
-	@OneToMany(mappedBy="usuario")
+	@ManyToOne
+	@JoinColumn(name="conta_id")
 	private List<Conta> conta;
 	
 	@OneToMany(mappedBy="usuario")
@@ -28,7 +29,7 @@ public class Usuario extends Pessoa implements Serializable{
 		
 	}
 
-	public Usuario(Integer id, String nome, String cpfOuCnpj, String login, String senha, String numeroCartao, String tipo) {
+	public Usuario(Integer id, String nome, String cpfOuCnpj, String login, String senha, String tipo) {
 		super(id, nome, cpfOuCnpj, login, senha);
 		this.tipo = tipo;
 	}
