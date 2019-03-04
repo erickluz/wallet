@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.erick.wallet.domain.enums.OperacaoTransacao;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,7 +29,7 @@ public class Transacao implements Serializable{
 	
 	private String numeroContaOrigem;
 	private String numeroContaDestino;
-	private String operacao; //Alterar o tipo para OperacaoTransacao
+	private Integer operacao;
 	
 	@JsonIgnore
 	@ManyToOne
@@ -43,14 +44,14 @@ public class Transacao implements Serializable{
 	}
 
 	public Transacao(Integer id, Double valor, Date data, String numeroContaOrigem, String numeroContaDestino,
-			String operacao) {
+			OperacaoTransacao operacao) {
 		super();
 		this.id = id;
 		this.valor = valor;
 		this.data = data;
 		this.numeroContaOrigem = numeroContaOrigem;
 		this.numeroContaDestino = numeroContaDestino;
-		this.operacao = operacao;
+		this.operacao = (operacao == null)? null : operacao.getCod();
 	}
 
 	public Integer getId() {
@@ -109,12 +110,12 @@ public class Transacao implements Serializable{
 		this.numeroContaDestino = numeroContaDestino;
 	}
 
-	public String getOperacao() {
-		return operacao;
+	public OperacaoTransacao getOperacao() {
+		return OperacaoTransacao.toEnum(this.operacao);
 	}
 
-	public void setOperacao(String operacao) {
-		this.operacao = operacao;
+	public void setOperacao(OperacaoTransacao operacao) {
+		this.operacao = operacao.getCod();
 	}
 
 	@Override

@@ -12,6 +12,8 @@ import com.erick.wallet.domain.Conta;
 import com.erick.wallet.domain.Endereco;
 import com.erick.wallet.domain.Transacao;
 import com.erick.wallet.domain.Usuario;
+import com.erick.wallet.domain.enums.OperacaoTransacao;
+import com.erick.wallet.domain.enums.TipoUsuario;
 import com.erick.wallet.repositories.BancoRepository;
 import com.erick.wallet.repositories.CartaoRepository;
 import com.erick.wallet.repositories.ContaRepository;
@@ -56,9 +58,9 @@ public class DBService {
 		
 		bancoRepository.saveAll(Arrays.asList(b1, b2));
 
-		Transacao tran1 = new Transacao(null, 23.00, new Date(), "AR-13322", "AR-113344", "transferencia");
-		Transacao tran2 = new Transacao(null, 156.00, new Date(), "AR-13322", "AR-113344", "transferencia");
-		Transacao tran3 = new Transacao(null, 2222.00, new Date(), "AR-13322", "AR-113344", "transferencia");
+		Transacao tran1 = new Transacao(null, 23.00, new Date(), "AR-13322", "AR-113344", OperacaoTransacao.TRANSFERENCIA);
+		Transacao tran2 = new Transacao(null, 156.00, new Date(), "AR-13322", "AR-113344", OperacaoTransacao.TRANSFERENCIA);
+		Transacao tran3 = new Transacao(null, 2222.00, new Date(), "AR-13322", "AR-113344", OperacaoTransacao.TRANSFERENCIA);
 		
 		Cartao c1 = new Cartao(null, "123456789", Data.paraData("19-05-2022 09:21"), "C", Data.paraData("21-04-2018"));
 		Cartao c2 = new Cartao(null, "987654321", Data.paraData("19-05-2022 09:21"), "D", Data.paraData("21-04-2018"));
@@ -71,7 +73,7 @@ public class DBService {
 		tran2.setConta(co2);
 		tran3.setConta(co2);
 		
-		Usuario usuario = new Usuario(null, "Erick Luz", "43768646840", "erickluz", "123456", "C");
+		Usuario usuario = new Usuario(null, "Erick Luz", "43768646840", "erickluz", "123456", TipoUsuario.CLIENTE);
 		usuario.setBanco(b1);
 		b1.setUsuario(Arrays.asList(usuario));
 		usuario.setCartao(Arrays.asList(c1, c2));

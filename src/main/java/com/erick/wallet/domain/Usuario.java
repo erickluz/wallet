@@ -8,11 +8,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.erick.wallet.domain.enums.TipoUsuario;
+
 @Entity // Alteracao aqui
 public class Usuario extends Pessoa implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private String tipo; // Mudar para o tipo TipoUsuario
+	private Integer tipo;
 	
 	@ManyToOne
 	@JoinColumn(name="banco_id")
@@ -28,9 +30,9 @@ public class Usuario extends Pessoa implements Serializable{
 		
 	}
 
-	public Usuario(Integer id, String nome, String cpfOuCnpj, String login, String senha, String tipo) {
+	public Usuario(Integer id, String nome, String cpfOuCnpj, String login, String senha, TipoUsuario tipo) {
 		super(id, nome, cpfOuCnpj, login, senha);
-		this.tipo = tipo;
+		this.tipo = (tipo == null) ? null : tipo.getCod();
 	}
 
 	public List<Conta> getConta() {
@@ -49,12 +51,12 @@ public class Usuario extends Pessoa implements Serializable{
 		this.cartao = cartao;
 	}
 
-	public String getTipo() {
-		return tipo;
+	public TipoUsuario getTipo() {
+		return TipoUsuario.toEnum(this.tipo);
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setTipo(TipoUsuario tipo) {
+		this.tipo = tipo.getCod();
 	}
 
 	public Banco getBanco() {
